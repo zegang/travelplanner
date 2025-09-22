@@ -3,25 +3,18 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import { viteSingleFile } from 'vite-plugin-singlefile';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
+import { viteSingleFile } from 'vite-plugin-singlefile'
+import vuetify from "vite-plugin-vuetify"
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
+    vuetify({ autoImport: true }),
     vueJsx(),
     vueDevTools(),
     viteSingleFile({
       removeViteModuleLoader: false,
-    }),
-    viteStaticCopy({
-      targets: [
-        {
-          src: '3a33b21966c70f9fc251c59a07c0ae2d.txt',
-          dest: ''
-        }
-      ]
     }),
   ],
   resolve: {
