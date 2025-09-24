@@ -2,23 +2,27 @@
   <v-form @submit.prevent="submit">
     <v-text-field
       v-model="username"
-      label="Username"
-      prepend-icon="mdi-account"
-      required
+      :prepend-icon="account" required
+      :label="$t('username.value')"
     />
     <v-text-field
       v-model="password"
-      label="Password"
-      prepend-icon="mdi-lock"
-      type="password"
+      :prepend-icon="lock" type="password"
+      :label="$t('password.value')"
       required
     />
-    <v-btn color="primary" type="submit" block class="mt-4">Login</v-btn>
+    <v-btn color="primary" type="submit" block class="mt-4">
+      {{ $t('login.value') }}
+    </v-btn>
   </v-form>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue"
+import {
+  mdiAccount as account,
+  mdiLock as lock
+} from '@mdi/js'
 
 const username = ref("")
 const password = ref("")
